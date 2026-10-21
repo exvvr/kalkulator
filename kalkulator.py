@@ -31,9 +31,10 @@ try:
         except ZeroDivisionError:
                 print("dont divide by 0")
 except (KeyboardInterrupt, EOFError):
-    print("\ngoodbye")
-
-
+    try:
+        print("\ngoodbye")
+    except KeyboardInterrupt:
+        pass
 
 
 
