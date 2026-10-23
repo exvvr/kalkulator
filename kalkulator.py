@@ -5,38 +5,85 @@ print(r"""
 | (_| (_| | | (__| |_| | | (_| | || (_) | |   
  \___\__,_|_|\___|\__,_|_|\__,_|\__\___/|_|   
 """)
+
 try:
-    while True:
-        digitsandnumbers = []
+    while True: 
+
+        while True: 
+            print ("enter a")
+            try:
+                a = float(input())
+                break
+            except ValueError:
+                print("this is not number")
 
         while True:
-            while True:
-                number = input("Type a number:")
-                if number.isdigit():
-                    break
-                print("This is not a number")
-            digitsandnumbers.append(number)
-            while True:     
-                operator = input("Type an operator:")
-                if operator in ("+", "-","*","/","="):
-                    break
-                print("This is not an operator")
-            if operator == "=" :
+            print("choose an operator(+, -, *, /, **, root)")
+            operator = input()
+            if operator in ("+", "-", "*", "/","**","root"):
                 break
-            digitsandnumbers.append(operator)
+            else:
+                print("this is not an operator")
 
-        equation = " ".join(digitsandnumbers)
-        try:
-            print(equation, "=", eval(equation))
-        except ZeroDivisionError:
+        while True: 
+            print ("enter b")
+            try:
+                b = float(input())
+            except ValueError:
+                print("this is not number")
+                continue
+            
+            if operator == "/" and b == 0:
                 print("dont divide by 0")
+                continue
+
+            if operator =="**":
+                if a == 0 and b < 0:
+                    print("0 cant be raised to a negative power")
+                    continue
+                if a < 0 and not b.is_integer():
+                    print("negative number cant be raised to a fractional power")
+                    continue
+
+            if operator == "root":
+                if b == 0:
+                    print*("root deegree cant be 0")
+                    continue
+                if a < 0:
+                    print("cant take root out of negative number")
+            break
+
+        if operator == "+":
+            result = a + b 
+
+        elif operator == "-":
+            result = a - b 
+            
+        elif operator == "*":
+            result = a * b 
+            
+        elif operator == "/":
+            result = a / b 
+
+        elif operator == "**":
+            result = a ** b 
+
+        elif operator == "root":
+            result = a ** (1 / b)
+
+        result = round(result, 10)
+        
+        if result.is_integer():
+            result = int(result)
+
+        print("=", result)
+        
+
 except (KeyboardInterrupt, EOFError):
     try:
         print("\ngoodbye")
     except KeyboardInterrupt:
         pass
-
-
 
 
 

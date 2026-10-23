@@ -1,6 +1,6 @@
 # Kalkulator
 
-SImple console calculator type a number then an operator, type = to get result . download version for your system:
+SImple console calculator enter a choose an operator then enter b and get a result. download version for your system:
 https://github.com/exvvr/kalkulator/releases/latest
 
 ## Windows
